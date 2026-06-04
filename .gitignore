@@ -1,0 +1,67 @@
+### OS / IDE ###
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.sublime-project
+*.sublime-workspace
+
+### Environment & secrets ###
+.env
+.env.local
+.env.local.php
+.env.*.local
+.env.*
+!.env.example
+!.env.test
+*.pem
+*.p12
+*.pfx
+id_rsa
+.aws/credentials
+
+### Symfony ###
+/vendor/
+/var/
+/public/bundles/
+/public/build/
+/config/secrets/prod/prod.decrypt.private.php
+/phpunit.result.cache
+/.phpunit.cache
+/bin/.phpunit/
+/coverage/
+composer.phar
+
+### Angular / Node ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+dist/
+tmp/
+out-tsc/
+bazel-out/
+.angular/
+.sass-cache/
+/connect.lock
+/libpeerconnection.log
+testem.log
+typings/
+__screenshots__/
+.nx/cache
+.nx/workspace-data
+
+# Build & test artifacts
+.nyc_output
+*.lcov

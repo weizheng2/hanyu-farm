@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hanzi_farm}
+      POSTGRES_USER: ${POSTGRES_USER:-app}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "5432:5432"
+
+  backend:
+    image: php:8.3-fpm
+    working_dir: /var/www/backend
+    volumes:
+      - ./backend:/var/www/backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    command: php -S 0.0.0.0:8000 -t public
+
+  frontend:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "4200:4200"
+    command: npm start
