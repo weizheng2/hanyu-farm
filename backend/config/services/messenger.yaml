@@ -1,0 +1,33 @@
+# Handlers live under Application/{Command,Query,Event}/ and are routed to the matching bus.
+# Message classes (*Command.php, *Query.php, *Event.php) are excluded from the container.
+
+services:
+    App\Learning\Application\Command\:
+        resource: '../../src/Learning/Application/Command/*Handler.php'
+        tags:
+            - { name: messenger.message_handler, bus: command.bus }
+
+    App\Learning\Application\Query\:
+        resource: '../../src/Learning/Application/Query/*Handler.php'
+        tags:
+            - { name: messenger.message_handler, bus: query.bus }
+
+    App\Learning\Application\Event\:
+        resource: '../../src/Learning/Application/Event/*Handler.php'
+        tags:
+            - { name: messenger.message_handler, bus: event.bus }
+
+    App\Farm\Application\Command\:
+        resource: '../../src/Farm/Application/Command/*Handler.php'
+        tags:
+            - { name: messenger.message_handler, bus: command.bus }
+
+    App\Farm\Application\Query\:
+        resource: '../../src/Farm/Application/Query/*Handler.php'
+        tags:
+            - { name: messenger.message_handler, bus: query.bus }
+
+    App\Farm\Application\Event\:
+        resource: '../../src/Farm/Application/Event/*Handler.php'
+        tags:
+            - { name: messenger.message_handler, bus: event.bus }
